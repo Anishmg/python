@@ -1,8 +1,12 @@
+from flask import Flask, render_template
 import pyjokes
 
-# Get 5 neutral jokes
-jokes = pyjokes.get_jokes(language='en', category='neutral')
+app = Flask(__name__)
 
-# Print the jokes
-for i, joke in enumerate(jokes[:5]):
-    print(f"{i+1}. {joke}")
+@app.route('/')
+def index():
+    jokes = pyjokes.get_jokes()
+    return render_template('index.html', jokes=jokes[:5])
+
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0')

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jokes</title>
+</head>
+<body>
+    <h1>Here are some Python jokes:</h1>
+    <ul>
+        {% for joke in jokes %}
+            <li>{{ joke }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
